@@ -10,7 +10,7 @@ def counter(request):
             cart = Cart.objects.filter(cart_id= _cart_id(request))
             if request.user.is_authenticated:
                 cart_items = CartItem.objects.all().filter(user = request.user)
-                print("content processor",cart_items)
+              
             else:
                 cart_items = CartItem.objects.all().filter(cart = cart[:1])
             for cart in cart_items:

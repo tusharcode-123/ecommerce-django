@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-f!gyr^yxvpu&qh%2^xv-ljhmbclz9l&@69(i2@ta4w+!i1xl2%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.ngrok.io']
 
 
 # Application definition
@@ -150,3 +150,5 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "rdrds1975@gmail.com"
 EMAIL_HOST_PASSWORD = "uumsbenpcssdadmd"
+
+CSRF_TRUSTED_ORIGINS = ["https://05b4-223-226-217-203.in.ngrok.io"]

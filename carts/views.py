@@ -135,7 +135,9 @@ def remove_cart(request,product_id,cart_item_id):
             cart_item.quantity -= 1
             cart_item.save()
         else:
-            cart_item.delete()
+            # cart_item.delete()
+            cart_item.quantity == 1
+            cart_item.save()
     except:
         pass
     return redirect("Cart")
@@ -150,6 +152,9 @@ def remove_cart_item(request,product_id,cart_item_id):
     
     cart_item.delete()
     return redirect("Cart")
+# topic has become an integral part of the rising debate in the present world. While proponents of the arguments are in favour
+# , however, the opponents are a completely against the relevance of the topic. In my opinion, topic has more positive impacts than negativies around the globe 
+# To commence with, there are a numbers of arguments in favour of my belief.
 
 def cart(request,total=0,quantity=0,cart_items=None):
     try:
