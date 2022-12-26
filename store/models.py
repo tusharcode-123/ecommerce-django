@@ -2,7 +2,7 @@ from django.db import models
 from category.models import Category
 from django.urls import reverse
 from accounts.models import Account
-
+from django.db.models import Avg,Count
 
 class Product(models.Model):
     product_name = models.CharField(max_length=200,unique=True)
@@ -21,6 +21,21 @@ class Product(models.Model):
 
     def __str__(self):
         return self.product_name
+
+    def averageReview(self):
+        review = Reviewrating.objects.filter(product=self,status = True).aggregate(average=Avg('rating'))
+        avg = 0
+        if review["average"] is not None:
+            avg = float(review["average"])
+        return avg
+
+    def countReview(self):
+        review = Reviewrating.objects.filter(product=self,status = True).aggregate(count=Count('rating'))
+        count = 0
+        if review["count"] is not None:
+            count = int(review["count"])
+        return count
+
 
 class VariationManager(models.Manager):
     def colors(self):

@@ -1,7 +1,7 @@
 .rate > input{
-    display: none;
-  }
-  
+  display: none;
+}
+
 .rate{
   display: inline-block;;
   border: 0;
